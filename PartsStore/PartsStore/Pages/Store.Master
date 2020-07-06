@@ -5,13 +5,13 @@
 <html>
 <head runat="server">
     <link rel="stylesheet" href="../Content/Styles.css" />
-    <title>GameStore</title>
+    <title>PartsStore</title>
 </head>
 <body>
     <form id="form1" runat="server">
         <div id="header">
             <GS:CartSummary runat="server"/>
-            <div class="title">GameStore - магазин игр для тебя</div>
+            <div class="title">PartsStore - СТО для машин</div>
         </div>
         <div id="categories">
             <GS:CategoryLinks runat="server" />
