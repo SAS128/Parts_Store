@@ -1,0 +1,4 @@
+﻿<asp:ListBox runat="server" ForeColor="White" BackColor="Black" />
+<asp:TextBox runat="server" ForeColor="White" BackColor="Black" />
+<asp:Button runat="server" ForeColor="White" BackColor="Black" />
+<asp:Label runat="server" ForeColor="White" BackColor="Black" />

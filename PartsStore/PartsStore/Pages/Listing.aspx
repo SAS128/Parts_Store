@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Listing.aspx.cs" Inherits="PartsStore.Pages.Listing" MasterPageFile="~/Pages/Store.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Listing.aspx.cs" Inherits="PartsStore.Pages.Listing" MasterPageFile="~/Pages/Store.Master"  %>
 <%@ Import Namespace="System.Web.Routing" %>
 <asp:Content ContentPlaceHolderID="bodyContent" runat="server">
     <div id="content">

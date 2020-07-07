@@ -25,7 +25,7 @@ namespace PartsStore.Pages
                 }
             }
         }
-
+     
         public IEnumerable<PartsStore.Models.CartLine> GetCartLines()
         {
             return SessionHelper.GetCart(Session).Lines;

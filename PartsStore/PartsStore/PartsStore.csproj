@@ -145,6 +145,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Themes\DarkTheme\DarkTheme.skin" />
+    <Content Include="App_Themes\WhiteTheme\WhiteTheme.skin" />
     <None Include="packages.config" />
     <Content Include="Pages\Store.Master" />
     <None Include="Web.Debug.config">

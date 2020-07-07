@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Checkout.aspx.cs" Inherits="PartsStore.Pages.Checkout" MasterPageFile="~/Pages/Store.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Checkout.aspx.cs" Inherits="PartsStore.Pages.Checkout" MasterPageFile="~/Pages/Store.Master"  %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="bodyContent" runat="server">
     <div id="content">

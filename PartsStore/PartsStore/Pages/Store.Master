@@ -11,7 +11,9 @@
     <form id="form1" runat="server">
         <div id="header">
             <GS:CartSummary runat="server"/>
-            <div class="title">PartsStore - СТО для машин</div>
+            <div  class="title">PartsStore - СТО для машин</div>
+             <asp:Button  ID="cmdApplyChangeTheme" runat="server" Text="Темная Тема" OnClick="cmdApply_Change_Theme_Click" />
+           
         </div>
         <div id="categories">
             <GS:CategoryLinks runat="server" />

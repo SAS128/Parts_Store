@@ -9,6 +9,7 @@ namespace PartsStore.Pages
 {
     public partial class Checkout : System.Web.UI.Page
     {
+       
         protected void Page_Load(object sender, EventArgs e)
         {
             checkoutForm.Visible = true;

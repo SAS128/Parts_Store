@@ -28,7 +28,19 @@ namespace PartsStore.Pages
             string reqValue = (string)RouteData.Values["page"] ?? Request.QueryString["page"];
             return reqValue != null && int.TryParse(reqValue, out page) ? page : 1;
         }
+        protected void Page_PreInit(object sender, EventArgs e)
+        {
+            if (Session["Theme"] == null)
+            {
+                // Тема не выбрана
+                Page.Theme = "";
+            }
+            else
+            {
+                Page.Theme = (string)Session["Theme"];
 
+            }
+        }
         protected int CurrentPage
         {
             get

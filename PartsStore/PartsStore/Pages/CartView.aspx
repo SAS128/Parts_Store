@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CartView.aspx.cs" Inherits="PartsStore.Pages.CartView" MasterPageFile="~/Pages/Store.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CartView.aspx.cs" Inherits="PartsStore.Pages.CartView" MasterPageFile="~/Pages/Store.Master"  %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="bodyContent" runat="server">
     <div id="content">
