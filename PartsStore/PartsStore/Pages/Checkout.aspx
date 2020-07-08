@@ -23,7 +23,7 @@
             </div>
             <div>
                 <label for="line2">Адресс 2:</label>
-               <SX:VInput Property="Line2" runat="server" />
+               <SX:VInput  Property="Line2" runat="server" />
             </div>
             <div>
                 <label for="line3">Адресс 3:</label>
