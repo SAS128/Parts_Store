@@ -39,25 +39,30 @@ namespace PartsStore.Pages
                     cart.Clear();
                     checkoutForm.Visible = false;
                     checkoutMessage.Visible = true;
-                    //// отправитель - устанавливаем адрес и отображаемое в письме имя
-                    //MailAddress from = new MailAddress("somemail@gmail.com", "Tom");
-                    //// кому отправляем
-                    //MailAddress to = new MailAddress("somemail@yandex.ru");
-                    //// создаем объект сообщения
-                    //MailMessage m = new MailMessage(from, to);
-                    //// тема письма
-                    //m.Subject = "Тест";
-                    //// текст письма
-                    //m.Body = "<h2>Письмо-тест работы smtp-клиента</h2>";
-                    //// письмо представляет код html
-                    //m.IsBodyHtml = true;
-                    //// адрес smtp-сервера и порт, с которого будем отправлять письмо
-                    //SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-                    //// логин и пароль
-                    //smtp.Credentials = new NetworkCredential("somemail@gmail.com", "mypassword");
-                    //smtp.EnableSsl = true;
-                    //smtp.Send(m);
+                    //------------------------------Mail---------------------------------------
+                    var fromAddress = new MailAddress("kormet61@gmail.com", "From Name");
+                    var toAddress = new MailAddress("Sandmen461@gmail.com", "To Name");
+                    const string fromPassword = "Rjhybqxer1";
+                    const string subject = "Покупка деталей на СТО";
+                    const string body = "Вы оплатиле следующие товары:... на сумму:...";
 
+                    var smtp = new SmtpClient
+                    {
+                        Host = "smtp.gmail.com",
+                        Port = 587,
+                        EnableSsl = true,
+                        DeliveryMethod = SmtpDeliveryMethod.Network,
+                        UseDefaultCredentials = false,
+                        Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+                    };
+                    using (var message = new MailMessage(fromAddress, toAddress)
+                    {
+                        Subject = subject,
+                        Body = body
+                    })
+                    {
+                        smtp.Send(message);
+                    }
                 }
             }
         }
