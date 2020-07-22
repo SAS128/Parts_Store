@@ -1,12 +1,20 @@
 ﻿using System.Collections.Generic;
-
+using System.Data.Entity;
+using System.Linq;
 
 namespace PartsStore.Models.Repository
 {
     public class Repository
     {
         private EFDbContext context = new EFDbContext();
-        public IEnumerable<Details> Details { get { return context.Details;  } }
+        public IEnumerable<Detail> Details { get { return context.Details;  } }
+        public IEnumerable<Order> Orders
+        {
+            get
+            {
+                return context.Orders.Include(c => c.OrderLines.Select(ol => ol.Details));
+            }
+        }
         public void SaveOrder(Order order)
         {
             if(order.OrderId == 0)
@@ -28,9 +36,45 @@ namespace PartsStore.Models.Repository
                     dbOrder.Line3 = order.Line3;
                     dbOrder.City = order.City;
                     dbOrder.GiftWrap = order.GiftWrap;
-                    dbOrder.Dispatcher = order.Dispatcher;
+                    dbOrder.Dispatched = order.Dispatched;
                 }
             }
+            context.SaveChanges();
+        }
+        public void SaveDetails(Detail details)
+        {
+            if (details.DetailsId == 0)
+            {
+                details = context.Details.Add(details);
+            }
+            else
+            {
+                Detail dbDetail = context.Details.Find(details.DetailsId);
+                if (dbDetail != null)
+                {
+                    dbDetail.Name = details.Name;
+                    dbDetail.Price = details.Price;
+                    dbDetail.Category = details.Category;
+                    dbDetail.Description = details.Description;
+                }
+            }
+            context.SaveChanges();
+        }
+        public void DeleteDetail(Detail details)
+        {
+            IEnumerable<Order> orders = context.Orders.
+                Include(
+                    o => o.OrderLines.Select(
+                        ol => ol.Details))
+                    .Where(
+                        o => o.OrderLines.Count(
+                            ol => ol.Details.DetailsId == details.DetailsId) > 0
+                           ).ToArray();
+            foreach (Order order in orders)
+            {
+                context.Orders.Remove(order);
+            }
+            context.Details.Remove(details);
             context.SaveChanges();
         }
     }

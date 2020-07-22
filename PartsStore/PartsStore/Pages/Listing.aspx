@@ -2,7 +2,7 @@
 <%@ Import Namespace="System.Web.Routing" %>
 <asp:Content ContentPlaceHolderID="bodyContent" runat="server">
     <div id="content">
-      <asp:Repeater ItemType="PartsStore.Models.Details" SelectMethod="GetDetails" runat="server">
+      <asp:Repeater ItemType="PartsStore.Models.Detail" SelectMethod="GetDetails" runat="server">
           <ItemTemplate>
               <div class="item">
                   <h3><%# Item.Name %></h3>

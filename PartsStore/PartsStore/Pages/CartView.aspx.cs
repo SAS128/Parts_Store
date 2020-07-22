@@ -17,7 +17,7 @@ namespace PartsStore.Pages
                 Repository repository = new Repository();
                 int detailsId;
                 if(int.TryParse(Request.Form["remove"], out detailsId)){
-                    Details gameToRemove = repository.Details.Where(g => g.DetailsId == detailsId).FirstOrDefault();
+                    Detail gameToRemove = repository.Details.Where(g => g.DetailsId == detailsId).FirstOrDefault();
                     if(detailsId != null)
                     {
                         SessionHelper.GetCart(Session).RemoveLine(gameToRemove);

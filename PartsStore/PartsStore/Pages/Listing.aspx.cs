@@ -52,7 +52,7 @@ namespace PartsStore.Pages
         }
 
      
-        public IEnumerable<Details> GetDetails()
+        public IEnumerable<Detail> GetDetails()
         {
             return FilterDetails().
                 OrderBy(g => g.DetailsId).
@@ -61,9 +61,9 @@ namespace PartsStore.Pages
         }
 
         //метод фильтрации по каттегории
-        private IEnumerable<Details> FilterDetails()
+        private IEnumerable<Detail> FilterDetails()
         {
-            IEnumerable<Details> details = repository.Details;
+            IEnumerable<Detail> details = repository.Details;
             string currentCategory = (string)RouteData.Values["category"] ?? 
                 Request.QueryString["category"];
             return currentCategory == null ? details :
@@ -76,7 +76,7 @@ namespace PartsStore.Pages
                 int selectedDetailsId;
                 if(int.TryParse(Request.Form["add"], out selectedDetailsId))
                 {
-                    Details detailsGame = repository.Details.Where(g => g.DetailsId == selectedDetailsId).FirstOrDefault();
+                    Detail detailsGame = repository.Details.Where(g => g.DetailsId == selectedDetailsId).FirstOrDefault();
                     if (detailsGame != null) {
                         SessionHelper.GetCart(Session).AddItem(detailsGame, 1);
                         SessionHelper.Set(Session, SessionKey.RETURN_URL, Request.RawUrl);

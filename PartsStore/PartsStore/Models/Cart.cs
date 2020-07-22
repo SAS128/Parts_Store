@@ -9,7 +9,7 @@ namespace PartsStore.Models
     {
         private List<CartLine> lineCollection = new List<CartLine>();
 
-        public void AddItem(Details details, int quantity)
+        public void AddItem(Detail details, int quantity)
         {
             CartLine cartLine = lineCollection.Where(p => p.Details.DetailsId == details.DetailsId).FirstOrDefault();
             if (cartLine == null)
@@ -21,7 +21,7 @@ namespace PartsStore.Models
                 cartLine.Quantity += quantity;
             }
         }
-        public void RemoveLine(Details details)
+        public void RemoveLine(Detail details)
         {
             lineCollection.RemoveAll(l => l.Details.DetailsId == details.DetailsId);
         }
@@ -39,7 +39,7 @@ namespace PartsStore.Models
 
     public class CartLine
     {
-        public Details Details { get; set; }
+        public Detail Details { get; set; }
         public int Quantity { get; set; }
     }
 }

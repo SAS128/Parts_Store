@@ -44,7 +44,7 @@ namespace PartsStore.Pages
                     var toAddress = new MailAddress("Sandmen461@gmail.com", "To Name");
                     const string fromPassword = "Rjhybqxer1";
                     const string subject = "Покупка деталей на СТО";
-                    const string body = "Вы оплатиле следующие товары:... на сумму:...";
+                    const string body = "Вы оплатиле следующие товары: на сумму:...";
 
                     var smtp = new SmtpClient
                     {
