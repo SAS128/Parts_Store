@@ -8,6 +8,7 @@ namespace PartsStore.Models.Repository
     {
         private EFDbContext context = new EFDbContext();
         public IEnumerable<Detail> Details { get { return context.Details;  } }
+        public IEnumerable<User> Users { get { return context.Users; } }
         public IEnumerable<Order> Orders
         {
             get
