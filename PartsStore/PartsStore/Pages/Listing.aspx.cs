@@ -1,10 +1,12 @@
 ﻿using PartsStore.Models;
 using PartsStore.Models.Repository;
+using PartsStore.Pages.Admin;
 using PartsStore.Pages.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Routing;
+using Telegram.Bot.Types.ReplyMarkups;
 
 namespace PartsStore.Pages
 {
@@ -21,8 +23,20 @@ namespace PartsStore.Pages
                 return (int)Math.Ceiling((decimal)prodCount / pageSize);
             }
         }
-
-        private int GetPageFromRequest()
+        protected IEnumerable<string> GetCategories() => new Repository().Details.Select(p => p.Category).Distinct().OrderBy(x => x);
+        //public void AddButton()
+        //{
+        //            List<InlineKeyboardButton> list = new List<InlineKeyboardButton>();
+           
+        //    string currentCategory = (string)RouteData.Values["category"] ?? Request.QueryString["category"];
+           
+        //    foreach (string s in Details.)
+        //        {
+        //            list.Add(InlineKeyboardButton.WithCallbackData(s));
+        //        }
+        //    var inline = new InlineKeyboardMarkup(list);
+        //}
+private int GetPageFromRequest()
         {
             int page;
             string reqValue = (string)RouteData.Values["page"] ?? Request.QueryString["page"];

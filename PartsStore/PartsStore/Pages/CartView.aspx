@@ -6,7 +6,7 @@
         <table id="cartTable">
             <thead>
                 <tr>
-                    <th>Кол-во игр</th>
+                    <th>Кол-во</th>
                     <th>Название</th>
                     <th>Цена</th>
                     <th>Общая стоимость</th>

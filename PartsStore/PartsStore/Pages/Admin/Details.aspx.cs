@@ -21,7 +21,7 @@ namespace PartsStore.Pages.Admin
         public IEnumerable<Detail> GetDetails() => repository.Details;
 
 
-        public void UpdateGames(int gameID)
+        public void UpdateDetails(int gameID)
         {
             Detail myGame = repository.Details.Where(p => p.DetailsId == gameID).FirstOrDefault();
             if (myGame != null && TryUpdateModel(myGame, new FormValueProvider(ModelBindingExecutionContext)))
@@ -30,7 +30,7 @@ namespace PartsStore.Pages.Admin
             }
         }
 
-        public void DeleteGames(int gameID)
+        public void DeleteDetails(int gameID)
         {
             Detail myGetDetail = repository.Details.Where(p => p.DetailsId == gameID).FirstOrDefault();
             if (myGetDetail != null)
@@ -38,7 +38,7 @@ namespace PartsStore.Pages.Admin
                 repository.DeleteDetail(myGetDetail);
             }
         }
-        public void InsertGames()
+        public void InsertDetails()
         {
             Detail game = new Detail();
             if (TryUpdateModel(game, new FormValueProvider(ModelBindingExecutionContext)))

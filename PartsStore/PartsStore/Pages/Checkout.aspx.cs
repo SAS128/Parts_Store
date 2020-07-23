@@ -14,6 +14,7 @@ namespace PartsStore.Pages
        
         protected void Page_Load(object sender, EventArgs e)
         {
+            int cast;
             checkoutForm.Visible = true;
             checkoutMessage.Visible = false;
 
@@ -25,7 +26,7 @@ namespace PartsStore.Pages
                     order.OrderLines = new List<OrderLine>();
 
                     Cart cart = SessionHelper.GetCart(Session);
-
+                  
                     foreach (CartLine line in cart.Lines)
                     {
                         order.OrderLines.Add(new OrderLine() {
@@ -33,6 +34,7 @@ namespace PartsStore.Pages
                             Details = line.Details,
                             Quantity = line.Quantity
                         });
+                        cast = line.Quantity;
                     }
 
                     new Repository().SaveOrder(order);
@@ -44,7 +46,7 @@ namespace PartsStore.Pages
                     var toAddress = new MailAddress("Sandmen461@gmail.com", "To Name");
                     const string fromPassword = "Rjhybqxer1";
                     const string subject = "Покупка деталей на СТО";
-                    const string body = "Вы оплатиле следующие товары: на сумму:...";
+                    string body = $"Вы оплатиле следующие товары: на сумму:";
 
                     var smtp = new SmtpClient
                     {
@@ -53,7 +55,7 @@ namespace PartsStore.Pages
                         EnableSsl = true,
                         DeliveryMethod = SmtpDeliveryMethod.Network,
                         UseDefaultCredentials = false,
-                        Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+                        Credentials = new NetworkCredenLast tial(fromAddress.Address, fromPassword)
                     };
                     using (var message = new MailMessage(fromAddress, toAddress)
                     {
